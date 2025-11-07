@@ -8,9 +8,14 @@ import {
   ListItem,
   ListItemText,
   ListItemButton,
+  Card,
+  CardContent,
+  Grid,
 } from "@mui/material";
 import React, { useEffect, useState } from "react";
 import Drawer from "@mui/material/Drawer";
+import StockChart from "./Stockchart";
+import OrderBook from "./Orderbook";
 
 function App() {
   const [selection, setSelection] = useState(null);
@@ -38,14 +43,115 @@ function App() {
   const drawerWidth = 240;
 
   const contentView = () => {
-
     if (selection === "Price") {
       return (
         <div>
           <Typography variant="h4" gutterBottom>
             Bitcoin Price
           </Typography>
-          <Typography variant="h6">Current Price: ${price}</Typography>
+
+          <Grid
+            spacing={2}
+            container
+            sx={{
+              padding: 4,
+            }}
+          >
+            <Grid item xs={6} sm={3} md={3}>
+              <Card
+                sx={{
+                  maxWidth: 150,
+                  backgroundColor: "#1f2937", // dark gray
+                  color: "#f9fafb",
+                  borderRadius: 2,
+                  boxShadow: "0 4px 12px rgba(0,0,0,0.5)",
+                  textAlign: "center",
+                }}
+              >
+                <CardContent>
+                  <Typography variant="body1" fontWeight="bold">
+                    Current Price
+                  </Typography>
+                  <Typography variant="body1" sx={{ mt: 1, color: "#10b981" }}>
+                    $24,320.50
+                  </Typography>
+                </CardContent>
+              </Card>
+            </Grid>
+
+            <Grid item xs={6} sm={3} md={3}>
+              <Card
+                sx={{
+                  maxWidth: 150,
+                  backgroundColor: "#1f2937", // dark gray
+                  color: "#f9fafb",
+                  borderRadius: 2,
+                  boxShadow: "0 4px 12px rgba(0,0,0,0.5)",
+                  textAlign: "center",
+                }}
+              >
+                <CardContent>
+                  <Typography variant="body1" fontWeight="bold">
+                    Opening Price
+                  </Typography>
+                  <Typography variant="body1" sx={{ mt: 1, color: "#10b981" }}>
+                    $24,500.50
+                  </Typography>
+                </CardContent>
+              </Card>
+            </Grid>
+
+            <Grid item xs={6} sm={3} md={3}>
+              <Card
+                sx={{
+                  maxWidth: 150,
+                  backgroundColor: "#1f2937", // dark gray
+                  color: "#f9fafb",
+                  borderRadius: 2,
+                  boxShadow: "0 4px 12px rgba(0,0,0,0.5)",
+                  textAlign: "center",
+                }}
+              >
+                <CardContent>
+                  <Typography variant="body1" fontWeight="bold">
+                    Closing Price
+                  </Typography>
+                  <Typography variant="body1" sx={{ mt: 1, color: "#10b981" }}>
+                    $23,320.50
+                  </Typography>
+                </CardContent>
+              </Card>
+            </Grid>
+
+            <Grid item xs={6} sm={3} md={3}>
+              <Card
+                sx={{
+                  maxWidth: 150,
+                  backgroundColor: "#1f2937", // dark gray
+                  color: "#f9fafb",
+                  borderRadius: 2,
+                  boxShadow: "0 4px 12px rgba(0,0,0,0.5)",
+                  textAlign: "center",
+                }}
+              >
+                <CardContent>
+                  <Typography variant="body1" fontWeight="bold">
+                    Volume
+                  </Typography>
+                  <Typography variant="body1" sx={{ mt: 1, color: "#10b981" }}>
+                    $100,000,000.00
+                  </Typography>
+                </CardContent>
+              </Card>
+            </Grid>
+          </Grid>
+
+
+          <StockChart></StockChart>
+
+          <OrderBook></OrderBook>
+
+
         </div>
       );
     }
@@ -129,7 +235,7 @@ function App() {
 
         {/* Main content */}
         <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
-                {contentView()}
+          {contentView()}
         </Box>
       </Box>
     </div>
