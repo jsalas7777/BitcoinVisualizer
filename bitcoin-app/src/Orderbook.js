@@ -48,7 +48,7 @@ export default function OrderBook() {
       <Typography
         variant="h6"
         align="center"
-        sx={{ mb: 2, fontWeight: "bold", color: "black" }}
+        sx={{ mb: 2, fontWeight: "bold", color: "white" }}
       >
         Order Book
       </Typography>
